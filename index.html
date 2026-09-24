@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarun Chava | Portfolio</title>
+  <style>
+
+    :root {
+      --bg-dark: #0b0914;
+      --card-bg: rgba(22, 18, 38, 0.7);
+      --border-purple: rgba(147, 51, 234, 0.3);
+      --accent-purple: #a855f7;
+      --accent-glow: #7e22ce;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+
+      background-image: 
+        radial-gradient(circle at 15% 20%, rgba(126, 34, 206, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 40%);
+    }
+
+    a {
+      color: var(--accent-purple);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #c084fc;
+      text-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+
+    header {
+      border-bottom: 1px solid var(--border-purple);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      background: rgba(11, 9, 20, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #fff 0%, var(--accent-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+
+    .hero {
+      padding: 5rem 0 3.5rem;
+      border-bottom: 1px solid var(--border-purple);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid var(--accent-purple);
+      border-radius: 20px;
+      color: var(--accent-purple);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 0 12px rgba(168, 85, 247, 0.2);
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 700px;
+    }
+
+
+    section {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--border-purple);
+    }
+
+    section h2 {
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    section h2::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 20px;
+      background: linear-gradient(to bottom, var(--accent-purple), var(--accent-glow));
+      border-radius: 4px;
+      box-shadow: 0 0 10px var(--accent-purple);
+    }
+
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-purple);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent-purple);
+      box-shadow: 0 10px 25px -5px rgba(126, 34, 206, 0.3);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border-purple);
+    }
+
+    .project-body {
+      padding: 1.35rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-title {
+      font-size: 1.15rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      flex-grow: 1;
+    }
+
+
+    .articles-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .article-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-purple);
+      padding: 1.25rem 1.5rem;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+    }
+
+    .article-item:hover {
+      border-color: var(--accent-purple);
+      box-shadow: 0 4px 15px rgba(168, 85, 247, 0.15);
+      transform: translateX(4px);
+    }
+
+    .article-title {
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .article-meta {
+      font-size: 0.85rem;
+      color: var(--accent-purple);
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+
+    @media (max-width: 600px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <div class="container nav-container">
+      <div class="logo">Tarun Chava</div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#articles">Articles</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section id="about" class="hero">
+      <span class="hero-badge">CS Graduate Student & Developer</span>
+      <h1>Building Modern Web Apps & Intelligent Automation</h1>
+      <p>Specializing in full-stack backend systems, cloud architectures, and responsive web development.</p>
+    </section>
+
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        
+
+        <article class="project-card">
+          <img src="revenant.png" alt="Screenshot of Project 1">
+          <div class="project-body">
+            <h3 class="project-title">Revenant</h3>
+            <p class="project-desc">an ai companion built around memory. one that actually remembers you, and grows as it comes to know you.</p>
+          </div>
+        </article>
+
+
+        <article class="project-card">
+          <img src="logbook.png" alt="Screenshot of Project 2">
+          <div class="project-body">
+            <h3 class="project-title">LogBook</h3>
+            <p class="project-desc">A medical library for all entertainment TV shows. movies, games,songs etc</p>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="Valorant.jpg" alt="Screenshot of Project 3">
+          <div class="project-body">
+            <h3 class="project-title">Valorant Agent Selector</h3>
+            <p class="project-desc">Choose a Valorant agent based on your playstyle and preferences.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  
+    <section id="articles">
+      <h2>Articles & Presentations</h2>
+      <ul class="articles-list">
+        <li class="article-item">
+          <div class="article-title">Enterprise Intelligent Automation & LLMs</div>
+          <div class="article-meta">Presentation • 2026</div>
+        </li>
+        <li class="article-item">
+          <div class="article-title">Parallel Computing & Performance Optimization</div>
+          <div class="article-meta">Article • 2026</div>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Tarun Chava. Built for CS 641 Mobile Web Development</p>
+    </div>
+  </footer>
+
+</body>
+</html>
